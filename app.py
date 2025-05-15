@@ -32,7 +32,7 @@ if pdf:
     vector_db = Chroma.from_documents(documents=docs, embedding=GoogleGenerativeAIEmbeddings(model="models/embedding-001"))
     retriever = vector_db.as_retriever(search_type="similarity", search_kwargs={"k": 10})
 
-    llm = ChatGoogleGenerativeAI(model="gemini-1.5-pro", temperature=0, max_tokens=None, timeout=30)
+    llm = ChatGoogleGenerativeAI(model="gemini-1.5-pro", temperature=0, max_tokens=512, timeout=30)
 
     system_prompt = (
         "You are an assistant for question-answering tasks. "
